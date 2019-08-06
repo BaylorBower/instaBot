@@ -64,9 +64,9 @@ const   instagram ={
         let howManyLoops = 100;
 
 
-        for(let i = 0; i < howManyLoops/10; i++){
+        for(let i = 0; i < Math.sqrt(howManyLoops); i++){
         //Adding an additional pause
-        for(let i = 0; i < 10; i++){
+        for(let i = 0; i < Math.sqrt(howManyLoops);; i++){
 
         for(let tag of tags)    {
             
@@ -87,12 +87,8 @@ const   instagram ={
 
             //Its hashtag time, This takes you to the specific hashtag part of Instagram
         await instagram.page.waitFor(2000)
-        //let notNowButton = await instagram.page.$('//a[contains(text(), "Not Now")]');
         await instagram.page.goto(tagURL(tag), {waitUntil: 'networkidle2'});
-        // await notNowButton[0].click;
-        // await instagram.page.waitFor(5000);
-        // await instagram.page.type('input[placeholder="Search"]', tag, { delay: 50 });
-        // await instagram.page.waitFor(1000);
+      
 
         let posts = await instagram.page.$$('article > div:nth-child(3) img[decoding="auto"]');
 
@@ -107,7 +103,7 @@ const   instagram ={
             await instagram.page.waitFor(1000);
 
             let canLike = await instagram.page.$('span[aria-label="Like"]');
-
+            // Checks to see if post is already liked
             if(canLike){
                 await instagram.page.click('span[aria-label="Like"]');
 

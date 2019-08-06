@@ -9,7 +9,7 @@ await ig.init();
 *  (Username,Password) 
 */
 
-await ig.login('cowartisdope','notThePassword');
+await ig.login('cowartisdope','bayb1234');
 
 /*
  * What Instagram hashtags the bot will like separated via commas 
